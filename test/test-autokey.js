@@ -27,7 +27,7 @@ describe("Autokey", function() {
     expect(cipher.decode(cipher.encode(str))).to.equal(str);
   });
   
-  it.only("doesn't touch characters not in the plaintext alphabet", function() {
+  it("doesn't touch characters not in the plaintext alphabet", function() {
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     var cipher = new autokey("some other key her", possible);
     var str = "This is my text!"
