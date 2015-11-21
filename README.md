@@ -2,6 +2,11 @@
 
 A Javascript implementation of the [Autokey cipher](https://en.wikipedia.org/wiki/Autokey_cipher).
 
+This is similar to and based on the stream cipher implementation at
+[https://github.com/hex7c0/autokey](https://github.com/hex7c0/autokey)
+but restricts the input and output alphabets to a given set.  This
+makes it handy for producing human-readable textual output.
+
 ## How it works
 
 To install:
