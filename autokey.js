@@ -12,16 +12,18 @@ Autokey.prototype.encode = function(raw) {
   var cipher = this.key.length;
   var cc = cipher;
   var last;
+  var alpha_length = this.alphabet.length;
+  var k;
   for (var i = 0, ii = raw.length; i < ii; ++i) {
     if (this.betaalph[raw[i]] == undefined)
       res += raw[i]
     else {
       if (cc-- > 0) {
-        var k = this.key[cc].charCodeAt(0) % this.alphabet.length;
-        last = this.alphabet[(this.betaalph[raw[i]] + k) % this.alphabet.length];
+        k = this.key[cc].charCodeAt(0);
       } else {
-        last = this.alphabet[(this.betaalph[raw[i]] + this.betaalph[last]) % this.alphabet.length];
+        k = this.betaalph[last];
       }
+      last = this.alphabet[(this.betaalph[raw[i]] + k) % alpha_length];
       res += last;
     }
   }
@@ -33,16 +35,18 @@ Autokey.prototype.decode = function(raw) {
   var cipher = this.key.length;
   var cc = cipher;
   var last;
+  var alpha_length = this.alphabet.length;
+  var k;
   for (var i = 0, ii = raw.length; i < ii; ++i) {
     if (this.betaalph[raw[i]] == undefined)
       res += raw[i]
     else {
       if (cc-- > 0) {
-        var k = this.key[cc].charCodeAt(0) % this.alphabet.length;
-        res += this.alphabet[(this.betaalph[raw[i]] - k + this.alphabet.length) % this.alphabet.length];
+        k = this.key[cc].charCodeAt(0) % alpha_length;
       } else {
-        res += this.alphabet[(this.betaalph[raw[i]] - this.betaalph[last] + this.alphabet.length) % this.alphabet.length];
+        k = this.betaalph[last];
       }
+      res += this.alphabet[(this.betaalph[raw[i]] - k + alpha_length) % alpha_length];
       last = raw[i];
     }
 }
