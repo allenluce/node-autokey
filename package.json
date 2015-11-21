@@ -1,6 +1,6 @@
 {
   "name": "node-autokey",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Javascript implementation of the Autokey cipher",
   "main": "autokey.js",
   "scripts": {

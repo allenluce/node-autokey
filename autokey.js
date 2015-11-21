@@ -6,51 +6,44 @@ function Autokey(key, alphabet) {
   for (var i = 0, ii = alphabet.length; i < ii; ++i) 
     this.betaalph[alphabet[i]] = i;
   this.alphabet = alphabet;
+  this.keylen = key.length;
+  this.alphalen = alphabet.length;
 }
 
 Autokey.prototype.encode = function(raw) {
   var res = "";
-  var cipher = this.key.length;
-  var cc = cipher;
+  var cc = this.keylen;
   var last;
-  var alpha_length = this.alphabet.length;
   var k;
-  for (var i = 0, ii = raw.length; i < ii; ++i) {
+  for (var i = 0, ii = raw.length; i < ii; ++i)
     if (this.betaalph[raw[i]] == undefined)
       res += raw[i]
     else {
-      if (cc-- > 0) {
-        k = this.key[cc];
-      } else {
-        k = this.betaalph[last];
-      }
-      last = this.alphabet[(this.betaalph[raw[i]] + k) % alpha_length];
-      res += last;
+      if (cc-- > 0)
+        k = this.key[cc]
+      else
+        k = this.betaalph[last]
+      res += last = this.alphabet[(this.betaalph[raw[i]] + k) % this.alphalen];
     }
-  }
   return res;
 }
 
 Autokey.prototype.decode = function(raw) {
   var res = "";
-  var cipher = this.key.length;
-  var cc = cipher;
+  var cc = this.keylen;
   var last;
-  var alpha_length = this.alphabet.length;
   var k;
-  for (var i = 0, ii = raw.length; i < ii; ++i) {
+  for (var i = 0, ii = raw.length; i < ii; ++i)
     if (this.betaalph[raw[i]] == undefined)
       res += raw[i]
     else {
-      if (cc-- > 0) {
-        k = this.key[cc] % alpha_length;
-      } else {
-        k = this.betaalph[last];
-      }
-      res += this.alphabet[(this.betaalph[raw[i]] - k + alpha_length) % alpha_length];
+      if (cc-- > 0)
+        k = this.key[cc] % this.alphalen
+      else
+        k = this.betaalph[last]
+      res += this.alphabet[(this.betaalph[raw[i]] - k + this.alphalen) % this.alphalen];
       last = raw[i];
     }
-  }
   return res;
 }
 
