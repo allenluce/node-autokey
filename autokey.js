@@ -1,10 +1,11 @@
 function Autokey(key, alphabet) {
-  this.key = key;
-  this.alphabet = alphabet;
+  this.key = [];
+  for (var i = 0, ii = key.length; i < ii; ++i)
+    this.key[i] = key[i].charCodeAt(0);
   this.betaalph = [];
-  for (var i = 0, ii = alphabet.length; i < ii; ++i) {
+  for (var i = 0, ii = alphabet.length; i < ii; ++i) 
     this.betaalph[alphabet[i]] = i;
-  }
+  this.alphabet = alphabet;
 }
 
 Autokey.prototype.encode = function(raw) {
@@ -19,7 +20,7 @@ Autokey.prototype.encode = function(raw) {
       res += raw[i]
     else {
       if (cc-- > 0) {
-        k = this.key[cc].charCodeAt(0);
+        k = this.key[cc];
       } else {
         k = this.betaalph[last];
       }
@@ -42,16 +43,15 @@ Autokey.prototype.decode = function(raw) {
       res += raw[i]
     else {
       if (cc-- > 0) {
-        k = this.key[cc].charCodeAt(0) % alpha_length;
+        k = this.key[cc] % alpha_length;
       } else {
         k = this.betaalph[last];
       }
       res += this.alphabet[(this.betaalph[raw[i]] - k + alpha_length) % alpha_length];
       last = raw[i];
     }
-}
+  }
   return res;
-
 }
 
 module.exports = Autokey;
