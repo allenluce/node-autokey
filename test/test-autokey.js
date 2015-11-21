@@ -13,11 +13,11 @@ describe("Autokey", function() {
   });
 
   it("encodes properly", function() {
-    expect(this.cipher.encode("WELLDONEISBETTERTHANWELLSAID")).to.equal("BFBDRPISJJWSUOJFJIOLKLTJNHWY");
+    expect(this.cipher.encode("WELLDONEISBETTERTHANWELLSAID")).to.equal("ONDFUCEZWZWCBASPHIQBBZMZNRJR");
   });
 
   it("decodes properly", function() {
-    expect(this.cipher.decode("BFBDRPISJJWSUOJFJIOLKLTJNHWY")).to.equal("WELLDONEISBETTERTHANWELLSAID");
+    expect(this.cipher.decode("ONDFUCEZWZWCBASPHIQBBZMZNRJR")).to.equal("WELLDONEISBETTERTHANWELLSAID");
   });
      
   it("is reversible", function() {
@@ -34,6 +34,14 @@ describe("Autokey", function() {
     expect(cipher.encode(str)).to.match(/[A-Za-z0-9]{4} [A-Za-z0-9]{2} [A-Za-z0-9]{2} [A-Za-z0-9]{4}\!/);
     expect(cipher.decode(cipher.encode(str))).to.equal(str);
   });
+
+  it("Works with lots of non-alphabet in it", function() {
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    var cipher = new autokey("moy", possible);
+    var str = "This has a lot of non-alphabet!"
+    expect(cipher.decode(cipher.encode(str))).to.equal(str);
+  });
+
   
 });
 
