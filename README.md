@@ -1,5 +1,7 @@
 # Autokey
 
+[![Build Status](https://travis-ci.org/allenluce/node-autokey.svg?branch=master)](https://travis-ci.org/allenluce/node-autokey)
+
 A Javascript implementation of the simple
 [Autokey cipher](https://en.wikipedia.org/wiki/Autokey_cipher).
 Autokey has some useful characteristics: the output is the same length
