@@ -16,7 +16,7 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "chai": "3.4.1",
+    "chai": "2.3.0",
     "mocha": "2.3.4"
   },
   "engines": {
