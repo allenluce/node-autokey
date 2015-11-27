@@ -4,8 +4,7 @@
   "description": "Javascript implementation of the Autokey cipher",
   "main": "autokey.js",
   "scripts": {
-    "test": "mocha",
-    "testmon": "nodemon --exec mocha"
+    "test": "mocha"
   },
   "author": {
     "name": "Allen Luce",
@@ -17,10 +16,8 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "benchmark": "^1.0.0",
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "nodemon": "^1.8.1"
+    "chai": "3.4.1",
+    "mocha": "2.3.4"
   },
   "engines": {
     "node": ">=2.0.1"
