@@ -6,7 +6,7 @@
     "test": "mocha",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "coverage": "istanbul cover _mocha",
-    "coverage:upload": "npm run coverage -s -- --reporter=text-lcov | coveralls"
+    "coverage:upload": "cat ./coverage/lcov.info | coveralls"
   },
   "author": {
     "name": "Allen Luce",
