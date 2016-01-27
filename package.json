@@ -1,10 +1,10 @@
 {
   "name": "node-autokey",
-  "version": "1.0.4",
   "description": "Javascript implementation of the Autokey cipher",
   "main": "autokey.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": {
     "name": "Allen Luce",
@@ -12,12 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/allenluce/node-autokey.git"
+    "url": "https://github.com/allenluce/node-autokey.git"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "chai": "2.3.0",
-    "mocha": "1.9.0"
+    "mocha": "1.9.0",
+    "semantic-release": "^4.3.5"
   },
   "engines": {
     "node": ">=2.0.1"
