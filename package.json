@@ -4,7 +4,9 @@
   "main": "autokey.js",
   "scripts": {
     "test": "mocha",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "coverage": "istanbul cover _mocha",
+    "coverage:upload": "npm run coverage -s -- --reporter=text-lcov | coveralls"
   },
   "author": {
     "name": "Allen Luce",
@@ -17,7 +19,9 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "chai": "3.4.1",
+    "coveralls": "^2.11.6",
     "cz-conventional-changelog": "^1.1.5",
+    "istanbul": "^0.4.2",
     "mocha": "2.4.3",
     "semantic-release": "^4.3.5"
   },
