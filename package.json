@@ -17,10 +17,16 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "chai": "3.4.1",
+    "cz-conventional-changelog": "^1.1.5",
     "mocha": "2.4.3",
     "semantic-release": "^4.3.5"
   },
   "engines": {
     "node": ">=2.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
