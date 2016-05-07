@@ -1,6 +1,7 @@
 # Autokey
 
 [![Build Status](https://travis-ci.org/allenluce/node-autokey.svg?branch=master)](https://travis-ci.org/allenluce/node-autokey)
+[![Coverage Status](https://coveralls.io/repos/github/allenluce/node-autokey/badge.svg?branch=master)](https://coveralls.io/github/allenluce/node-autokey?branch=master)
 
 A Javascript implementation of the simple
 [Autokey cipher](https://en.wikipedia.org/wiki/Autokey_cipher).
