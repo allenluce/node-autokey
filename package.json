@@ -19,10 +19,10 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "chai": "3.5.0",
-    "coveralls": "^2.11.6",
-    "cz-conventional-changelog": "^1.1.5",
-    "istanbul": "^0.4.2",
-    "mocha": "2.4.5",
+    "coveralls": "^2.11.9",
+    "cz-conventional-changelog": "^1.1.6",
+    "istanbul": "^0.4.3",
+    "mocha": "2.5.2",
     "semantic-release": "^4.3.5"
   },
   "engines": {
