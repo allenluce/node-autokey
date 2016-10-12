@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/allenluce/node-autokey.svg?branch=master)](https://travis-ci.org/allenluce/node-autokey)
 [![Coverage Status](https://coveralls.io/repos/github/allenluce/node-autokey/badge.svg?branch=master)](https://coveralls.io/github/allenluce/node-autokey?branch=master)
-
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 A Javascript implementation of the simple
