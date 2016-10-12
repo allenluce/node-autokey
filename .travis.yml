@@ -6,6 +6,7 @@ cache:
 notifications:
   email: false
 node_js:
+  - '6'
   - '5'
   - '4'
   - iojs-v3
@@ -18,13 +19,23 @@ before_install:
   - npm i -g npm@^2.0.0
 before_script:
   - npm prune
-after_success:
+script:
   - npm run coverage
-  - npm run coverage:upload
+after_script:
+  - echo leader=$BUILD_LEADER status=$BUILD_AGGREGATE_STATUS
+after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - 'export $(cat .to_export_back) &> /dev/null'
-  - npm run semantic-release
+  - |
+      if [ "$BUILD_LEADER" = "YES" -a "$BUILD_AGGREGATE_STATUS" = "others_succeeded" ]; then
+        echo "Checking coverage and release status."
+        npm install coveralls
+        npm run coverage:upload
+        npm run semantic-release
+      else
+        echo "Either I'm a minion or the build failed. No coverage or semantic-releasing for me."
+      fi
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
