@@ -21,7 +21,7 @@
     "chai": "3.5.0",
     "cz-conventional-changelog": "^2.0.0",
     "istanbul": "^0.4.5",
-    "mocha": "3.3.0",
+    "mocha": "3.4.1",
     "semantic-release": "^6.3.2"
   },
   "engines": {
